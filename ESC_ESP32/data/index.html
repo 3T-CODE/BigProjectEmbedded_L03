@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ESP32 Real-time Data</title>
+  <script>
+    var ws = new WebSocket('ws://' + location.host + '/ws');
+    ws.onmessage = function(event) {
+      var data = JSON.parse(event.data);
+      document.getElementById('value').innerText = data.value;
+    };
+  </script>
+</head>
+<body>
+  <h1>Giá trị cảm biến:</h1>
+  <h2 id="value">--</h2>
+</body>
+</html>
